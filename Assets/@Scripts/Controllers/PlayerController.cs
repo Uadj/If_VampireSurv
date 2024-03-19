@@ -7,6 +7,11 @@ public class PlayerController : MonoBehaviour
     Vector2 _moveDir = Vector2.zero;
     float _speed = 5.0f;
 
+    public Vector2 MoveDir
+    {
+        get { return _moveDir; }
+        set { _moveDir = value.normalized; }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +21,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateInput();
+       // UpdateInput();
         MovePlayer();
     }
 
