@@ -32,19 +32,7 @@ public class UI_Joystick : MonoBehaviour, IPointerClickHandler, IPointerDownHand
 
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        Vector2 touchDir = (eventData.position - _touchPosition);
-
-        float moveDist = Mathf.Min(touchDir.magnitude, _joysticRadius);
-
-        _moveDir = touchDir.normalized;
-
-        Vector2 newPosition = _touchPosition + _moveDir * moveDist;
-        _handler.transform.position = newPosition;
-
-        _player.MoveDir = _moveDir;
-    }
+    
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -65,7 +53,22 @@ public class UI_Joystick : MonoBehaviour, IPointerClickHandler, IPointerDownHand
         _handler.transform.position = _touchPosition;
         _moveDir = Vector2.zero;
 
-        _player.MoveDir = _moveDir;
+        Managers.Game.MoveDir = _moveDir;
+        //_player.MoveDir = _moveDir;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        Vector2 touchDir = (eventData.position - _touchPosition);
+
+        float moveDist = Mathf.Min(touchDir.magnitude, _joysticRadius);
+
+        _moveDir = touchDir.normalized;
+
+        Vector2 newPosition = _touchPosition + _moveDir * moveDist;
+        _handler.transform.position = newPosition;
+
+        Managers.Game.MoveDir = _moveDir;
     }
 
 
