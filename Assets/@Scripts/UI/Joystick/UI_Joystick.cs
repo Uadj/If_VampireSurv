@@ -32,11 +32,11 @@ public class UI_Joystick : MonoBehaviour, IPointerClickHandler, IPointerDownHand
 
     }
 
-    
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
-     
+
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -45,7 +45,7 @@ public class UI_Joystick : MonoBehaviour, IPointerClickHandler, IPointerDownHand
         _handler.transform.position = eventData.position;
         _touchPosition = eventData.position;
 
-        
+
     }
 
     public void OnPointerUp(PointerEventData eventData)

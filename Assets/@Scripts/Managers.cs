@@ -8,10 +8,10 @@ public class Managers : MonoBehaviour
 
     #region Contents
     GameManager _game = new GameManager();
-    ObjectMapper _object = new ObjectMapper();
+    ObjectManager _object = new ObjectManager();
     PoolManager _pool = new PoolManager();
     public static GameManager Game { get { return Instance?._game; } }
-    public static ObjectMapper Object { get { return Instance ?._object; } }
+    public static ObjectManager Object { get { return Instance?._object; } }
     public static PoolManager Pool { get { return Instance?._pool; } }
     #endregion
 
@@ -21,7 +21,7 @@ public class Managers : MonoBehaviour
     SceneManagerEx _scene = new SceneManagerEx();
     SoundManager _sound = new SoundManager();
     UIManager _ui = new UIManager();
-    public static DataManager Data {  get { return Instance?._data; } }
+    public static DataManager Data { get { return Instance?._data; } }
     public static ResourceManager Resource { get { return Instance?._resource; } }
     public static SceneManagerEx Scene { get { return Instance?._scene; } }
     public static SoundManager SOund { get { return Instance?._sound; } }
@@ -32,12 +32,12 @@ public class Managers : MonoBehaviour
     {
         get
         {
-            if(s_init == false)
+            if (s_init == false)
             {
                 s_init = true;
 
                 GameObject go = GameObject.Find("@Managers");
-                if(go == null)
+                if (go == null)
                 {
                     go = new GameObject() { name = "@Managers" };
                     go.AddComponent<Managers>();

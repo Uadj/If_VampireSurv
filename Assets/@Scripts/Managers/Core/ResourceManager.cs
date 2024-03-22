@@ -50,7 +50,7 @@ public class ResourceManager
     #region Addressable
     public void LoadAsync<T>(string key, Action<T> callback = null) where T : UnityEngine.Object
     {
-        if(_resources.TryGetValue(key, out Object resource))
+        if (_resources.TryGetValue(key, out Object resource))
         {
             callback?.Invoke(resource as T);
             return;
